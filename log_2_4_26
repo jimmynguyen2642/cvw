@@ -1,0 +1,65 @@
+    1  git status
+    2  git --version
+    3  git config user.name jimmynguyen2642
+    4  ls
+    5  cd Desktop/
+    6  git clone https://github.com/jimmynguyen2642/Computer-Architecture.git
+    7  git clone --recurse-submodules https://github.com/jimmynguyen2642/cvw
+    8  git config user.name jimmynguyen2642
+    9  git clone https://github.com/jimmynguyen2642/Computer-Architecture.git
+   10  cd ..
+   11  git clone --recurse-submodules https://github.com/jimmynguyen2642/cvw
+   12  cd cvw
+   13  source ./steup.sh
+   14  source ./setup.sh
+   15  ls
+   16  cd examples/C/hello
+   17  make
+   18  wsim --sim questa rv64gc --elf hello
+   19  cd ..
+   20  cd asm/example/
+   21  riscv64-unknown-elf-gcc -o example -march=rv32i -mabi=ilp32 -mcmodel=medany \ -nostartfiles -T../../link/link.ld
+   22  [200~riscv64-unknown-elf-gcc -o example -march=rv32i -mabi=ilp32 -mcmodel=medany -nostartfiles -T../../link/link.ld example.S~
+   23  [200~cd $WALLY/examples/asm/example~
+   24  cd $WALLY/examples/asm/example
+   25  riscv64-unknown-elf-gcc -o example -march=rv32i -mabi=ilp32 -mcmodel=medany -nostartfiles -T../../link/link.ld example.S~
+   26  riscv64-unknown-elf-gcc -o example -march=rv32i -mabi=ilp32 -mcmodel=medany -nostartfiles -T../../link/link.ld example.S
+   27  riscv64-unknown-elf-objdump -D example > example.odbjdump
+   28  diff example example.odbjdump 
+   29  diff -u example example.odbjdump 
+   30  diff -u example.S example.odbjdump 
+   31  cat makefile
+   32  cat Makefile
+   33  make
+   34  make clean
+   35  spike --isa=rv32i *programname*
+   36  cd ..
+   37  cd sumtest
+   38  make
+   39  spike +signature=sumtest.signature.output sumtest
+   40  diff sumtest.signature.output sumtest.reference_output
+   41  cd Makefile
+   42  ls
+   43  make clean
+   44  make
+   45  make sim
+   46  riscv64-unknown-elf-readelf -a sumtest
+   47  cd ..
+   48  cd C
+   49  cd sum
+   50  make
+   51  spike sum
+   52  cat sum
+   53  wsim --sim questa rv64gc --elf sum
+   54  cat sum.c
+   55  make
+   56  spike sum
+   57  spike --isa=rv32i sum
+   58  wsim --sim questa rv64gc --elf sum
+   59  sudo apt install wsim
+   60  spike --isa=rv32i -d example
+   61  cd ..
+   62  cd asm/example/
+   63  spike --isa=rv32i -d example
+   64  cd ..
+   65  history > log_2_4_26
