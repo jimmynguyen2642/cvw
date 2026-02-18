@@ -36,7 +36,7 @@ for:
 	add t5, a2, t4    #this makes &y[j], the location of y
 	sw zero, 0(t5)	  # stores y[j] with 0
 	addi t1, t1, 1      # this does the j++
-	j for
+	j next_loop
 
 next_loop:
 	
@@ -49,8 +49,18 @@ next_loop:
     add t7, t1, t0 #t7 = j + i
 	addi t8, a4, -1 #t8 = m - i
 	add t7, t7, t8 #t7 = j + i + (m-1)
- 
- 
- 
+
+	slli t7, t7, 2 #t7 = t7 * 4 
+	add t7, a0, t7 #t7 = x + t7
+	lw t7, 0(t7) #store t7 with x[j-i+(m-1)]
+
+	mul t8, t7, t6
+	add t9, t5, t8
+	sw t5, t9
+		
+	
+
+	add t0, t0 1    # this does i++
+	j for 
 donej:
     ret                 # all done; return	
