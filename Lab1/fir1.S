@@ -35,7 +35,7 @@ for:
 	slli t4, t1, 2    # t4 = j * 4
 	add t5, a2, t4    #this makes &y[j], the location of y
 	sw zero, 0(t5)	  # stores y[j] with 0
-	addi t1, t1, 1      # this does the j++
+	
 	j next_loop
 
 next_loop:
@@ -46,21 +46,23 @@ next_loop:
 	add t6, a1, t6 #address of c[i]
 	lw t6, 0(t6) #t6 = c[i]
 
-    add t7, t1, t0 #t7 = j + i
+    add a5, t1, t0 #a5 = j + i
 	addi t8, a4, -1 #t8 = m - i
-	add t7, t7, t8 #t7 = j + i + (m-1)
+	add a5, a5, t8 #a5 = j + i + (m-1)
 
-	slli t7, t7, 2 #t7 = t7 * 4 
-	add t7, a0, t7 #t7 = x + t7
-	lw t7, 0(t7) #store t7 with x[j-i+(m-1)]
+	slli a5, a5, 2 #a5 = a5 * 4 
+	add a5, a0, a5 #a5 = x + a5
+	lw a5, 0(a5) #store a5 with x[j-i+(m-1)]
 
-	mul t8, t7, t6
-	add t9, t5, t8
-	sw t5, t9
-		
-	
+	mul t8, a5, t6  # multiplys c[i] and x[j-i+(m-1)]
+	add t9, t5, t8  # adds the product from above with y[j]
+	sw t5, t9       # stores the sum above to y[j]
 
-	add t0, t0 1    # this does i++
-	j for 
+	add t0, t0, 1    # this does i++
+	j next_loop #Runs this loop until i >= m in which case we have the next_j to take us back to the first loop
+
+next_j:
+	addi t1, t1, 1      # this does the j++
+	j for
 donej:
     ret                 # all done; return	
