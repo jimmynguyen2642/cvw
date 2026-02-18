@@ -1,0 +1,250 @@
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw$ cd Lab1/
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw/Lab1$ make
+riscv64-unknown-elf-gcc -o fir1 -gdwarf-2 -O2\
+  -march=rv64gc -mabi=lp64d -mcmodel=medany \
+  -nostdlib -static -lm -fno-tree-loop-distribute-patterns \
+  -Tcommon/test.ld -Icommon \
+  fir1.c fir1.S common/crt.S common/syscalls.c
+/opt/riscv/lib/gcc/riscv64-unknown-elf/14.2.0/../../../../riscv64-unknown-elf/bin/ld: /tmp/ccdMXvCP.o: in function `fir':
+/home/comp-arch_wednesday26/cvw/Lab1/fir1.S:22: multiple definition of `fir'; /tmp/cc4jjNIE.o:/home/comp-arch_wednesday26/cvw/Lab1/fir1.c:31: first defined here
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:8: fir1] Error 1
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw/Lab1$ make
+riscv64-unknown-elf-gcc -o fir1 -gdwarf-2 -O2\
+  -march=rv64gc -mabi=lp64d -mcmodel=medany \
+  -nostdlib -static -lm -fno-tree-loop-distribute-patterns \
+  -Tcommon/test.ld -Icommon \
+  fir1.c fir1.S common/crt.S common/syscalls.c
+/opt/riscv/lib/gcc/riscv64-unknown-elf/14.2.0/../../../../riscv64-unknown-elf/bin/ld: /tmp/ccXI1hab.o: in function `fir':
+/home/comp-arch_wednesday26/cvw/Lab1/fir1.S:22: multiple definition of `fir'; /tmp/ccXXTfNc.o:/home/comp-arch_wednesday26/cvw/Lab1/fir1.c:31: first defined here
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:8: fir1] Error 1
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw/Lab1$ make
+riscv64-unknown-elf-gcc -o fir1 -gdwarf-2 -O2\
+  -march=rv64gc -mabi=lp64d -mcmodel=medany \
+  -nostdlib -static -lm -fno-tree-loop-distribute-patterns \
+  -Tcommon/test.ld -Icommon \
+  fir1.c fir1.S common/crt.S common/syscalls.c
+riscv64-unknown-elf-objdump -S -D fir1 > fir1.objdump
+spike fir1
+y[0] = 4fad3f2f
+y[1] = 627c6236
+y[2] = 4fad3f32
+y[3] = 1e6f0e17
+y[4] = e190f1eb
+y[5] = b052c0ce
+y[6] = 9d839dc6
+y[7] = b052c0cb
+y[8] = e190f1e6
+y[9] = 1e6f0e12
+y[10] = 4fad3f2f
+y[11] = 627c6236
+y[12] = 4fad3f32
+y[13] = 1e6f0e17
+y[14] = e190f1eb
+y[15] = b052c0ce
+y[16] = 9d839dc6
+mcycle = 1313
+minstret = 1318
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw/Lab1$ make
+riscv64-unknown-elf-gcc -o fir1 -gdwarf-2 -O3\
+  -march=rv64gc -mabi=lp64d -mcmodel=medany \
+  -nostdlib -static -lm -fno-tree-loop-distribute-patterns \
+  -Tcommon/test.ld -Icommon \
+  fir1.c fir1.S common/crt.S common/syscalls.c
+riscv64-unknown-elf-objdump -S -D fir1 > fir1.objdump
+spike fir1
+y[0] = 4fad3f2f
+y[1] = 627c6236
+y[2] = 4fad3f32
+y[3] = 1e6f0e17
+y[4] = e190f1eb
+y[5] = b052c0ce
+y[6] = 9d839dc6
+y[7] = b052c0cb
+y[8] = e190f1e6
+y[9] = 1e6f0e12
+y[10] = 4fad3f2f
+y[11] = 627c6236
+y[12] = 4fad3f32
+y[13] = 1e6f0e17
+y[14] = e190f1eb
+y[15] = b052c0ce
+y[16] = 9d839dc6
+mcycle = 1312
+minstret = 1317
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw/Lab1$ make
+riscv64-unknown-elf-gcc -o fir1 -gdwarf-2 \
+  -march=rv64gc -mabi=lp64d -mcmodel=medany \
+  -nostdlib -static -lm -fno-tree-loop-distribute-patterns \
+  -Tcommon/test.ld -Icommon \
+  fir1.c fir1.S common/crt.S common/syscalls.c
+/opt/riscv/lib/gcc/riscv64-unknown-elf/14.2.0/../../../../riscv64-unknown-elf/bin/ld: warning: /tmp/ccCEw4XE.o: requires executable stack (because the .note.GNU-stack section is executable)
+riscv64-unknown-elf-objdump -S -D fir1 > fir1.objdump
+spike fir1
+y[0] = 4fad3f2f
+y[1] = 627c6236
+y[2] = 4fad3f32
+y[3] = 1e6f0e17
+y[4] = e190f1eb
+y[5] = b052c0ce
+y[6] = 9d839dc6
+y[7] = b052c0cb
+y[8] = e190f1e6
+y[9] = 1e6f0e12
+y[10] = 4fad3f2f
+y[11] = 627c6236
+y[12] = 4fad3f32
+y[13] = 1e6f0e17
+y[14] = e190f1eb
+y[15] = b052c0ce
+y[16] = 9d839dc6
+mcycle = 1358
+minstret = 1374
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw/Lab1$ make
+riscv64-unknown-elf-gcc -o fir1 -gdwarf-2 -o\
+  -march=rv64gc -mabi=lp64d -mcmodel=medany \
+  -nostdlib -static -lm -fno-tree-loop-distribute-patterns \
+  -Tcommon/test.ld -Icommon \
+  fir1.c fir1.S common/crt.S common/syscalls.c
+/opt/riscv/lib/gcc/riscv64-unknown-elf/14.2.0/../../../../riscv64-unknown-elf/bin/ld: unrecognised emulation mode: arch=rv64gc
+Supported emulations: elf64lriscv elf32lriscv elf64briscv elf32briscv
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:8: fir1] Error 1
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw/Lab1$ make
+riscv64-unknown-elf-gcc -o fir1 -gdwarf-2 -O\
+  -march=rv64gc -mabi=lp64d -mcmodel=medany \
+  -nostdlib -static -lm -fno-tree-loop-distribute-patterns \
+  -Tcommon/test.ld -Icommon \
+  fir1.c fir1.S common/crt.S common/syscalls.c
+riscv64-unknown-elf-objdump -S -D fir1 > fir1.objdump
+Aborted (core dumped)
+make: *** [Makefile:4: fir1.objdump] Error 134
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw/Lab1$ make
+riscv64-unknown-elf-gcc -o fir1 -gdwarf-2 -O \
+  -march=rv64gc -mabi=lp64d -mcmodel=medany \
+  -nostdlib -static -lm -fno-tree-loop-distribute-patterns \
+  -Tcommon/test.ld -Icommon \
+  fir1.c fir1.S common/crt.S common/syscalls.c
+riscv64-unknown-elf-objdump -S -D fir1 > fir1.objdump
+Aborted (core dumped)
+make: *** [Makefile:4: fir1.objdump] Error 134
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw/Lab1$ make
+riscv64-unknown-elf-gcc -o fir1 -gdwarf-2 -O2 \
+  -march=rv64gc -mabi=lp64d -mcmodel=medany \
+  -nostdlib -static -lm -fno-tree-loop-distribute-patterns \
+  -Tcommon/test.ld -Icommon \
+  fir1.c fir1.S common/crt.S common/syscalls.c
+riscv64-unknown-elf-objdump -S -D fir1 > fir1.objdump
+spike fir1
+y[0] = 4fad3f2f
+y[1] = 627c6236
+y[2] = 4fad3f32
+y[3] = 1e6f0e17
+y[4] = e190f1eb
+y[5] = b052c0ce
+y[6] = 9d839dc6
+y[7] = b052c0cb
+y[8] = e190f1e6
+y[9] = 1e6f0e12
+y[10] = 4fad3f2f
+y[11] = 627c6236
+y[12] = 4fad3f32
+y[13] = 1e6f0e17
+y[14] = e190f1eb
+y[15] = b052c0ce
+y[16] = 9d839dc6
+mcycle = 1313
+minstret = 1318
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw/Lab1$ make
+riscv64-unknown-elf-gcc -o fir1 -gdwarf-2 -O\
+  -march=rv64gc -mabi=lp64d -mcmodel=medany \
+  -nostdlib -static -lm -fno-tree-loop-distribute-patterns \
+  -Tcommon/test.ld -Icommon \
+  fir1.c fir1.S common/crt.S common/syscalls.c
+riscv64-unknown-elf-objdump -S -D fir1 > fir1.objdump
+Aborted (core dumped)
+make: *** [Makefile:4: fir1.objdump] Error 134
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw/Lab1$ make
+riscv64-unknown-elf-gcc -o fir1 -gdwarf-2 -O\
+  -march=rv64gc -mabi=lp64d -mcmodel=medany \
+  -nostdlib -static -lm -fno-tree-loop-distribute-patterns \
+  -Tcommon/test.ld -Icommon \
+  fir1.c common/crt.S common/syscalls.c
+riscv64-unknown-elf-objdump -S -D fir1 > fir1.objdump
+spike fir1
+y[0] = 4fad3f2f
+y[1] = 627c6236
+y[2] = 4fad3f32
+y[3] = 1e6f0e17
+y[4] = e190f1eb
+y[5] = b052c0ce
+y[6] = 9d839dc6
+y[7] = b052c0cb
+y[8] = e190f1e6
+y[9] = 1e6f0e12
+y[10] = 4fad3f2f
+y[11] = 627c6236
+y[12] = 4fad3f32
+y[13] = 1e6f0e17
+y[14] = e190f1eb
+y[15] = b052c0ce
+y[16] = 9d839dc6
+mcycle = 856
+minstret = 863
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw/Lab1$ make
+riscv64-unknown-elf-gcc -o fir1 -gdwarf-2 -O2\
+  -march=rv64gc -mabi=lp64d -mcmodel=medany \
+  -nostdlib -static -lm -fno-tree-loop-distribute-patterns \
+  -Tcommon/test.ld -Icommon \
+  fir1.c common/crt.S common/syscalls.c
+riscv64-unknown-elf-objdump -S -D fir1 > fir1.objdump
+spike fir1
+y[0] = 4fad3f2f
+y[1] = 627c6236
+y[2] = 4fad3f32
+y[3] = 1e6f0e17
+y[4] = e190f1eb
+y[5] = b052c0ce
+y[6] = 9d839dc6
+y[7] = b052c0cb
+y[8] = e190f1e6
+y[9] = 1e6f0e12
+y[10] = 4fad3f2f
+y[11] = 627c6236
+y[12] = 4fad3f32
+y[13] = 1e6f0e17
+y[14] = e190f1eb
+y[15] = b052c0ce
+y[16] = 9d839dc6
+mcycle = 792
+minstret = 797
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw/Lab1$ make
+riscv64-unknown-elf-gcc -o fir1 -gdwarf-2 -O3\
+  -march=rv64gc -mabi=lp64d -mcmodel=medany \
+  -nostdlib -static -lm -fno-tree-loop-distribute-patterns \
+  -Tcommon/test.ld -Icommon \
+  fir1.c common/crt.S common/syscalls.c
+riscv64-unknown-elf-objdump -S -D fir1 > fir1.objdump
+spike fir1
+y[0] = 4fad3f2f
+y[1] = 627c6236
+y[2] = 4fad3f32
+y[3] = 1e6f0e17
+y[4] = e190f1eb
+y[5] = b052c0ce
+y[6] = 9d839dc6
+y[7] = b052c0cb
+y[8] = e190f1e6
+y[9] = 1e6f0e12
+y[10] = 4fad3f2f
+y[11] = 627c6236
+y[12] = 4fad3f32
+y[13] = 1e6f0e17
+y[14] = e190f1eb
+y[15] = b052c0ce
+y[16] = 9d839dc6
+mcycle = 791
+minstret = 796
+(cvw) comp-arch_wednesday26@CEAT-ENDV350-03L:~/cvw/Lab1$ make
+riscv64-unknown-elf-gcc -o fir1 -gdwarf-2 \
